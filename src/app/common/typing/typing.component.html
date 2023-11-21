@@ -1,0 +1,18 @@
+<div class="card border-dark" style="width:28rem; margin :100px auto">
+    <div class="card-body text-center">
+      <h5 class="d-block p-2 text-primary text-bg-dark">Typing Challenge</h5>
+      <hr class="text-danger">
+     <b><p class="text-center">
+      <span *ngFor="let letter of myText.split(''); let i=index"
+      [class]="compare(letter,enteredText[i])">
+      {{letter}}
+      </span>
+     </p></b>
+     <input type="text" class="form-control" #input (keyup)="onInput(input.value)" autofocus>
+     <div class="mt-3 text-success">
+      <span *ngIf="myText===enteredText">
+        Success
+      </span>
+     </div>
+    </div>
+  </div>

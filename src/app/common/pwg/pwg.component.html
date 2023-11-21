@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="card border-dark" style="width:28rem; margin: 60px auto">
+    <div class="card-body">
+      <h5 class="text-primary text-center mb-4">Password Generator</h5>
+      <div>
+        <label class="form-label">Enter Length</label>
+        <input type="text" class="form-control" #vada (input)="getLength(vada.value)">
+      </div>
+      <div class="form-check mt-3">
+        <input class="form-check-input" type="checkbox" id="in"(change)="includeNumber()">
+        <label class="form-check-label" for="in">
+          Include Numbers
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="inc"(change)="includeCharacter()">
+        <label class="form-check-label" for="inc">
+          Include Characters
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="ins"(change)="includeSymbol()">
+        <label class="form-check-label" for="ins">
+          Include Symbols
+        </label>
+      </div>
+
+      <div class="text-center mt-3">
+        <button class="btn btn-primary" style="width: 100%;" (click)="genPass()"
+          [disabled]="!passLength">Generate!</button>
+      </div>
+
+      <div>
+        <div class="mb-3" *ngIf="generatedPass">
+          <label class="form-label">Generated Password</label>
+          <input type="text" class="form-control" value="{{generatedPass}}">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
